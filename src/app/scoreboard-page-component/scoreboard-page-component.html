@@ -1,1 +1,25 @@
-<h1>Scoreboard-Component</h1>
+<div class="p-8">
+  <h1 class="text-4xl font-bold mb-6 text-center text-amber-900">Scoreboard</h1>
+
+  <table class="min-w-full bg-white border border-gray-300 rounded-lg">
+    <thead class="bg-gray-200">
+      <tr>
+        <th class="py-2 px-4 text-left">Platz</th>
+        <th class="py-2 px-4 text-left">Name</th>
+        <th class="py-2 px-4 text-left">Score</th>
+        <th class="py-2 px-4 text-left">Aktionen</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (player of players; track player.id) {
+        <tr class="border-t">
+          <td class="py-2 px-4">{{ $index + 1 }}</td>
+          <td class="py-2 px-4">{{ player.name }}</td>
+          <td class="py-2 px-4">{{ player.score }}</td>
+          <td class="py-2 px-4">
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
