@@ -11,12 +11,30 @@
       </tr>
     </thead>
     <tbody>
-      @for (player of players; track player.id) {
-        <tr class="border-t">
+       @for (player of players; track player.id) {
+        <tr class="border-t hover:bg-gray-50">
           <td class="py-2 px-4">{{ $index + 1 }}</td>
           <td class="py-2 px-4">{{ player.name }}</td>
           <td class="py-2 px-4">{{ player.score }}</td>
-          <td class="py-2 px-4">
+          <td class="py-2 px-4 flex space-x-2">
+            <button
+              class="bg-green-500 hover:bg-green-600 text-white px-2 py-1 rounded"
+              (click)="increaseScore(player)"
+            >
+              +1
+            </button>
+            <button
+              class="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded"
+              (click)="decreaseScore(player)"
+            >
+              -1
+            </button>
+          </td>
+        </tr>
+      } @empty {
+        <tr>
+          <td colspan="4" class="text-center py-4 text-gray-500">
+            Keine Spieler vorhanden
           </td>
         </tr>
       }

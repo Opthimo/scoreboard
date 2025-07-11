@@ -14,8 +14,23 @@ players: Player[] = [
     { id: 3, name: 'Charlie', score: 5 },
     { id: 4, name: 'Diana', score: 20 }
   ];
+  
+ngOnInit() {
+    this.sortPlayers();
+  }
 
-trackByPlayerId(index: number, player: Player): number {
-  return player.id;
-}
+ increaseScore(player: Player) {
+    player.score++;
+    this.sortPlayers();
+  }
+
+  decreaseScore(player: Player) {
+    player.score--;
+    this.sortPlayers();
+  }
+
+  private sortPlayers() {
+    this.players.sort((a, b) => b.score - a.score);
+  }
+
 }
